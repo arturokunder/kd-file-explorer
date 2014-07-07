@@ -18,11 +18,8 @@ def formatfilename(value):
 @register.filter
 def checkValidObject(obj):
   if obj.is_subdir:
-    print 'return true'
     return True
   elif obj.is_file and re.match(r'^.*\.(\w+)$', obj.basename):
-    print 'return true'
     return True
   else:
-    print 'return false'
     return False
