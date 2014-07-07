@@ -1,28 +1,24 @@
-{% comment %}
-###############################################################################
-# Browser Base
-#
-# Note: Override this base template to integrate rest of templates to site
-# look and feel.
-###############################################################################
-{% endcomment %}
+{% extends "base.jade" %}
 
-<html>
-<head>
-  <title>kunder - {% block title %}{% endblock %}</title>
-{% block cloud_browser_template_head %}{% endblock %}
-{% block extra_head %}{% endblock %}
-</head>
-<body>
-<h1>KUNDER</h1>
-{% block body %}
-  {% block menu %}{% endblock %}
-  <div id="cloud-browser-breadcrumbs" class="cloud-browser-defaults">
-    {% block cloud_browser_breadcrumbs %}{% endblock %}
-  </div>
-  <div id="cloud-browser-content">
-    {% block cloud_browser_content %}{% endblock %}
-  </div>
+{% block head %}
+  <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/cloud-browser.css">
+  {% block cloud_browser_template_head %}{% endblock %}
+  {% block extra_head %}{% endblock %}
 {% endblock %}
-</body>
-</html>
+
+{% block content %}
+  <h1>
+    <span class="kunder-logo black hover-green"></span>
+    <small>Sistema de generación de reportes</small>
+  </h1>
+
+  {% block body %}
+    {% block menu %}{% endblock %}
+    <div id="cloud-browser-breadcrumbs" class="cloud-browser-defaults">
+      {% block cloud_browser_breadcrumbs %}{% endblock %}
+    </div>
+    <div id="cloud-browser-content">
+      {% block cloud_browser_content %}{% endblock %}
+    </div>
+  {% endblock %}
+{% endblock %}

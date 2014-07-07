@@ -1,0 +1,28 @@
+extends base.jade
+
+block content
+  .container.login-page
+    .row.header
+      .col-sm-4.col-sm-offset-4
+        p
+          h3 Iniciar sesión
+
+    form(method='post', action="{% url 'django.contrib.auth.views.login' %}")
+      | {% csrf_token %}
+      if form.errors
+        p Usuario o contraseña incorrecta
+      .row
+        .col-sm-4.col-sm-offset-4
+          .input-group.input-group-lg
+            span.input-group-addon.glyphicon.glyphicon-envelope
+            input.form-control#id_username(type="text", name="username", placeholder="Usuario", required, autofocus, maxlength="254")
+          br
+          .input-group.input-group-lg
+            span.input-group-addon.glyphicon.glyphicon-lock
+            input.form-control#id_password(type="password", name="password" ,placeholder="Contraseña", required)
+
+      .row
+        .col-sm-4.col-sm-offset-4
+          br
+          input.btn.btn-lg.btn-success.btn-block.submit-btn(type="submit", value="Ingresar") 
+          input(type='hidden', name='next', value='{{ next }}')

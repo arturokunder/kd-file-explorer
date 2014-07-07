@@ -1,0 +1,45 @@
+{% load staticfiles %}
+
+html
+  head
+    title kunder - Reportes
+    link(rel='stylesheet', href="{% static 'css/bootstrap.min.css' %}")
+    link(rel='stylesheet', href="{% static 'css/kunder.base.css' %}")
+
+    block head
+
+  body
+    .site-wrapper.push
+        .content-wrapper
+            block content
+
+    block footer
+      footer.footer.push
+        .container
+          .row.footer-content
+            .col-sm-8
+              p
+                .row
+                  .col-sm-3.footer-logo
+                    .kunder-logo.black.small.hover-green
+                    .kunder-slogan.small
+                  .col-sm-4
+
+                    br.visible-xs
+                    address
+                        a.contact-info.mail(href='mailto:contacto@kunder.cl?Subject=Contacto%20web', target='_blank')
+                          span.glyphicon.glyphicon-envelope
+                          span   contacto@kunder.cl
+                        br
+                        br.visible-xs
+                        a.contact-info.number(href='tel:+56229059019')
+                          span.glyphicon.glyphicon-earphone
+                          span   +56 2 2905 9019
+                    br.visible-xs
+                    br.visible-xs
+                  .col-sm-2
+                    a.contact-info.twitter.twitter-follow-button(href='https://twitter.com/kunder_cl', data-show-count='false', data-lang='es')
+                      | Seguir a @kunder_cl
+
+                    script.
+                      !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');

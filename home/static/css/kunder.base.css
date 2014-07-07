@@ -1,0 +1,275 @@
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:400,700');
+@charset "utf-8";
+@font-face {
+  font-family: Kunder;
+  src: url('../fonts/kunder.font.regular.otf');
+  src: url('../fonts/kunder.font.regular.otf?#iefix') format('opentype');
+}
+@font-face {
+  font-family: Kunder;
+  src: url('../fonts/kunder.font.bold.otf');
+  src: url('../fonts/kunder.font.bold.otf?#iefix') format('opentype');
+  font-weight: 500;
+}
+@font-face {
+  font-family: Kunder;
+  src: url('../fonts/kunder.font.bold.otf');
+  src: url('../fonts/kunder.font.bold.otf?#iefix') format('opentype');
+  font-weight: bold;
+}
+@font-face {
+  font-family: Kunder;
+  src: url('http://themes.googleusercontent.com/static/fonts/lato/v6/oUan5VrEkpzIazlUe5ieaA.woff') format('woff');
+  font-style: italic;
+}
+
+* {
+  font-family: Kunder, 'Open Sans', Helvetica, sans-serif;
+}
+html,
+body {
+  height: 100%;
+  background-color: #fafafa;
+}
+.site-wrapper {
+  position: relative;
+  padding: 0 0 0 50px;
+  margin: 0 auto 0 auto;
+  min-height: 100%;
+  background-color: #fafafa;
+}
+.site-wrapper .content-wrapper {
+  padding: 20px;
+  min-height: 100%;
+}
+.pace .pace-progress {
+  background: #28f03c;
+  position: fixed;
+  z-index: 2000;
+  top: 0px;
+  left: 0;
+  height: 3px;
+  -webkit-transition: width 1s;
+  -moz-transition: width 1s;
+  -o-transition: width 1s;
+  transition: width 1s;
+}
+.pace-inactive {
+  display: none;
+}
+.footer {
+  position: absolute;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 50px;
+  padding-top: 10px;
+  width: 100%;
+  min-height: 80px;
+  background-color: #f0f0f0;
+  background-image: url(../img/footer-textura.png);
+}
+@media (max-width: 768px) {
+  .footer {
+    text-align: center;
+  }
+}
+.footer .footer-content {
+  margin-top: 10px;
+}
+.footer .footer-logo {
+  margin-top: -17px;
+}
+.footer .kunder-logo,
+.footer .kunder-slogan {
+  text-align: center;
+}
+.footer a.go-top > span {
+  top: 2px;
+}
+.footer a.go-top:hover,
+.footer a.go-top:focus,
+.footer a.go-top:active,
+.footer a.go-top:hover > span,
+.footer a.go-top:focus > span,
+.footer a.go-top:active > span {
+  text-decoration: none;
+}
+.footer .lang-selection {
+  color: #444444;
+}
+.footer .lang-selection .languages .lang {
+  font-family: 'Open Sans', Helvetica, sans-serif;
+  font-size: 0.7em;
+  cursor: pointer;
+}
+.footer .lang-selection .languages .lang.selected {
+  font-weight: bold;
+  cursor: auto;
+}
+.footer .lang-selection .languages .lang:hover {
+  color: #111111;
+}
+@media (min-width: 768px) {
+  .footer .lang-selection .languages {
+    text-align: right;
+  }
+}
+span.loading-icon {
+  display: none;
+  color: #43b451;
+}
+.loading span {
+  display: none;
+}
+.loading span.loading-icon {
+  display: inline-block;
+}
+.kunder-logo {
+  color: #28f03c;
+  font-weight: bold;
+  font-family: Kunder !important;
+  text-transform: none;
+}
+.kunder-logo:after {
+  content: ' kunder ';
+}
+.kunder-logo:hover {
+  color: #2b2b2b;
+}
+.kunder-logo.black {
+  color: #2b2b2b;
+}
+.kunder-logo.black:hover {
+  color: #f5f5f5;
+}
+.kunder-logo.hover-green:hover {
+  color: #28f03c;
+}
+.kunder-logo.hover-black:hover {
+  color: #2b2b2b;
+}
+.kunder-logo.hover-white:hover {
+  color: #f5f5f5;
+}
+.kunder-logo.big {
+  font-size: 48px;
+}
+.kunder-logo.small {
+  font-size: 26px;
+}
+.kunder-slogan {
+  color: #2b2b2b;
+}
+.kunder-slogan:after {
+  content: 'Te ayudamos a conocer a tu cliente';
+}
+.kunder-slogan.small {
+  font-family: 'Open Sans', Helvetica, sans-serif;
+  font-size: 10px;
+}
+.kunder-glyphicon {
+  font-family: 'Kunder Glyphicons' !important;
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+}
+.kunder-glyphicon.twitter:before {
+  content: 't';
+}
+.kunder-glyphicon.instagram:before {
+  content: 'i';
+}
+.kunder-glyphicon.circle:before {
+  content: 'c';
+}
+.kunder-glyphicon.people:before {
+  content: 'p';
+}
+.kunder-glyphicon.map:before,
+.kunder-glyphicon.earth:before {
+  content: 'e';
+}
+.kunder-glyphicon.lt:before {
+  font-family: Kunder;
+  font-weight: bold;
+  content: '<';
+}
+.kunder-glyphicon.gt:before {
+  font-family: Kunder;
+  font-weight: bold;
+  content: '>';
+}
+.kunder-glyphicon.campaigns:before {
+  content: 'b';
+}
+/* Scroll bar */
+/*
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+
+    width: 6px;
+    background: #f0f0f0;
+    border-radius: 10px;
+
+}
+
+::-webkit-scrollbar:horizontal {
+    height: 6px;
+    background: f0f0f0;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background: transparent;
+}
+
+::-webkit-scrollbar-track-piece {
+    border-radius: 10px;
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #555555;
+    opacity: 0.5;
+}
+::-webkit-scrollbar-thumb:hover {
+	background-color: #333333;
+	opacity: 1;
+}
+*/
+.center {
+  text-align: center;
+}
+.highlight.highlight-default {
+  background-color: #ffe18a;
+  color: #333333;
+}
+.highlight.highlight-primary {
+  background-color: #9598f5;
+  color: #fafafa;
+}
+.highlight.highlight-success {
+  background-color: #86f894;
+  color: #333333;
+}
+.highlight.highlight-warning {
+  background-color: #ffe18a;
+  color: #333333;
+}
+.highlight.highlight-danger {
+  background-color: #ff908a;
+  color: #fafafa;
+}
+.fa {
+  font-family: FontAwesome !important;
+}
+.btn.btn-xs > span.fa {
+  position: relative;
+  top: 1px;
+}

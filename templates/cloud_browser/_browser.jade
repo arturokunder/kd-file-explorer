@@ -1,0 +1,71 @@
+| {% load cloud_browser_extras %}
+| {% load home_extras %}
+
+block cloud_browser_content
+
+  #cloud-browser-all.cloud-browser-defaults
+    #cloud-browser-objects
+
+      if objects
+        .table-responsive
+          table.table.table-bordered.table-hover
+            thead
+              tr
+                th(style='width: 16px;') &nbsp;
+                th Nombre
+                th.center Contenido
+                th.center Tamaño (Bytes)
+                th.center Fecha de creación
+            tbody
+              for obj in objects
+                tr
+                  td.center
+                    if obj.is_subdir
+                      img(src="{% cloud_browser_media_url 'img/tango/16x16/places/folder.png' %}")
+                      | &nbsp;
+                    else
+                      img(src="{% cloud_browser_media_url 'img/tango/16x16/mimetypes/text-x-generic.png' %}")
+                      | &nbsp;
+                  td
+                    if obj.is_file
+                      a(href="{% url 'cloud_browser_document' obj.path %}") {{ obj.basename|formatfilename }}
+                    else
+                      a(href="{% url 'cloud_browser_browser' obj.path %}") {{ obj.basename|formatfilename }}
+
+                  td.center
+                    if obj.smart_content_type
+                      | {{ obj.smart_content_type }}
+                    else
+                      | --
+                  td.center
+                    if obj.is_file or obj.size > 0
+                      | {{ obj.size|filesizeformat }}
+                    else
+                     | --
+                  td.center
+                    if obj.last_modified
+                      | {{ obj.last_modified|date:'d-m-Y h:m' }}
+                    else
+                      | --
+
+            tfoot
+              tr
+                td(colspan='6')
+                  if marker_part
+                    .text-right
+                      form.form-inline#cloud-browser-next(action="{% url 'cloud_browser_browser' path|urlencode %}", method="post")
+                        .form-group
+                          | {% csrf_token %}
+                          label(for='moreItemsInput')
+                            | Siguientes
+                          input.form-control#moreItemsInput(name='limit', type='text', size='5', onkeypress="CloudBrowser.submitOnEnter(event, 'cloud-browser-next');", value='{{ limit }}')
+
+                        .form-group
+                          a.btn.btn-primary(href='#', onclick="return CloudBrowser.submitForm('cloud-browser-next');")
+                            span.glyphicon.glyphicon-chevron-right
+                  else
+                    | &nbsp;
+      else
+        if container
+          .cloud-browser-empty(colspan='6')
+            | No se han encontrado objetos en &ldquo;{{ path }}.&rdquo;

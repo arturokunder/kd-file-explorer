@@ -1,14 +1,15 @@
-{% comment %}
-###############################################################################
-# Path breadcrumbs
-###############################################################################
-{% endcomment %}
-
 {% block cloud_browser_breadcrumbs %}
-  ( <a class="cloud-browser-breadcrumb-link"
-       href="{% url "cloud_browser_browser" '' %}">Home</a> )
-  {% for crumb_path, crumb in breadcrumbs %}
-    &raquo; <a class="cloud-browser-breadcrumb-link"
-     href="{% url "cloud_browser_browser" crumb_path %}">{{ crumb }}</a>
-  {% endfor %}
+  <br />
+  <h4>
+    <a class="cloud-browser-breadcrumb-link" href="{% url "cloud_browser_browser" '' %}">
+      Inicio
+    </a>
+    {% for crumb_path, crumb in breadcrumbs %}
+      {% if forloop.counter > 3 %}
+        &raquo; <a class="cloud-browser-breadcrumb-link" href="{% url "cloud_browser_browser" crumb_path %}">{{ crumb }}</a>
+     {% endif %}
+    {% endfor %}
+  </h4>
+  <br />
+
 {% endblock %}
