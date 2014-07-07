@@ -18,35 +18,36 @@ block cloud_browser_content
                 th.center Fecha de creación
             tbody
               for obj in objects
-                tr
-                  td.center
-                    if obj.is_subdir
-                      img(src="{% cloud_browser_media_url 'img/tango/16x16/places/folder.png' %}")
-                      | &nbsp;
-                    else
-                      img(src="{% cloud_browser_media_url 'img/tango/16x16/mimetypes/text-x-generic.png' %}")
-                      | &nbsp;
-                  td
-                    if obj.is_file
-                      a(href="{% url 'cloud_browser_document' obj.path %}") {{ obj.basename|formatfilename }}
-                    else
-                      a(href="{% url 'cloud_browser_browser' obj.path %}") {{ obj.basename|formatfilename }}
+                if obj|checkValidObject
+                  tr
+                    td.center
+                      if obj.is_subdir
+                        img(src="{% cloud_browser_media_url 'img/tango/16x16/places/folder.png' %}")
+                        | &nbsp;
+                      else
+                        img(src="{% cloud_browser_media_url 'img/tango/16x16/mimetypes/text-x-generic.png' %}")
+                        | &nbsp;
+                    td
+                      if obj.is_file
+                        a(href="{% url 'cloud_browser_document' obj.path %}") {{ obj.basename|formatfilename }}
+                      else
+                        a(href="{% url 'cloud_browser_browser' obj.path %}") {{ obj.basename|formatfilename }}
 
-                  td.center
-                    if obj.smart_content_type
-                      | {{ obj.smart_content_type }}
-                    else
-                      | --
-                  td.center
-                    if obj.is_file or obj.size > 0
-                      | {{ obj.size|filesizeformat }}
-                    else
-                     | --
-                  td.center
-                    if obj.last_modified
-                      | {{ obj.last_modified|date:'d-m-Y h:m' }}
-                    else
-                      | --
+                    td.center
+                      if obj.smart_content_type
+                        | {{ obj.smart_content_type }}
+                      else
+                        | --
+                    td.center
+                      if obj.is_file or obj.size > 0
+                        | {{ obj.size|filesizeformat }}
+                      else
+                       | --
+                    td.center
+                      if obj.last_modified
+                        | {{ obj.last_modified|date:'d-m-Y h:m' }}
+                      else
+                        | --
 
             tfoot
               tr
