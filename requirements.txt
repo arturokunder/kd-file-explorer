@@ -2,7 +2,7 @@ Django==1.6.5
 boto==2.30.0
 distribute==0.7.3
 dj-database-url==0.3.0
-https://github.com/jthompsonsmi/django-cloud-browser/tarball/master#egg=django-cloud-browser
+-e git+https://github.com/jthompsonsmi/django-cloud-browser.git#egg=django-cloud-browser
 gunicorn==19.0.0
 psycopg2==2.5.3
 pyjade==2.2.0
