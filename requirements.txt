@@ -1,6 +1,7 @@
 Django==1.6.5
 boto==2.30.0
 distribute==0.7.3
+dj-database-url==0.3.0
 django-cloud-browser==0.2.2
 gunicorn==19.0.0
 psycopg2==2.5.3
