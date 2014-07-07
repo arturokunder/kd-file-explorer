@@ -61,7 +61,9 @@ WSGI_APPLICATION = 'fileExplorer.wsgi.application'
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 # Parse database configuration from $DATABASE_URL
 
-DATABASES['default'] =  dj_database_url.config()
+DATABASES = {
+  'default': dj_database_url.config()
+}
 
 # DATABASES = {
 #    'default': {
