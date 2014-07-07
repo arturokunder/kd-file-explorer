@@ -11,8 +11,12 @@ def client_auth(func):
   @login_required(login_url='/login/', )
   def decorator(request, path=''):
 
-    p = Permission.objects.get(user_id=request.user.id)
-    print p
+    try:
+      p = Permission.objects.get(user_id=request.user.id)
+    except:
+      logout(request)
+      return render_to_response('login.jade', {}, context_instance=RequestContext(request))
+
 
     #p = Permission(user=request.user)
     #p.folder = '/534c4546bae656020080728c'
