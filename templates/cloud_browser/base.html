@@ -7,6 +7,7 @@
 {% endblock %}
 
 {% block content %}
+  <a href="{% url 'django.contrib.auth.views.logout' %}" class="pull-right">Cerrar sesión</a>
   <h1>
     <span class="kunder-logo black hover-green"></span>
     <small>Sistema de generación de reportes</small>
